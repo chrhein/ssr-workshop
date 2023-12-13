@@ -1,15 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Slideshow, getData } from "./api-route";
 
-export default function ClientComponent() {
+function ClientComponent() {
   const [buttonClickedText, setButtonClickedText] = useState("");
+  const [data, setData] = useState<Slideshow>();
 
   const handleClick = () => {
     setButtonClickedText("Knappen er trykket");
   };
+
+  // useEffect(() => {
+  //   getData().then((data) => setData(data));
+  // }, []);
 
   return (
     <main
@@ -74,7 +80,18 @@ export default function ClientComponent() {
         >
           Trykk her for å lese mer om klientkomponenter hvis du vil vite mer...
         </Link>
+        {data && (
+          <>
+            <h2>Data fra server</h2>
+            <ul>
+              <li>Author: {data.author}</li>
+              <li>Title: {data.title}</li>
+            </ul>
+          </>
+        )}
       </section>
     </main>
   );
 }
+
+export default ClientComponent;

@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { Slideshow, getData } from "./api-route";
 
-export default function ServerComponent() {
+async function ServerComponent() {
   const [buttonClickedText, setButtonClickedText] = useState("");
+
+  const data = await getData();
 
   const handleClick = () => {
     setButtonClickedText("Knappen er trykket");
@@ -28,7 +31,7 @@ export default function ServerComponent() {
         <h1 style={{ fontSize: "24px" }}>
           Hei hei! Jeg er en komponent som blir rendret på server
         </h1>
-        <h2>Hva er en server komponent?</h2>
+        <h2>Hva er en serverkomponent?</h2>
         <p>
           På serveren kan vi generere HTML for å tillate brukere å se siden
           umiddelbart, uten å vente på at klienten skal laste ned, analysere og
@@ -37,10 +40,10 @@ export default function ServerComponent() {
           indeksere sidene dine.
         </p>
         <Image
-          src={"/klient.webp"}
-          width="1100"
-          height="1000"
-          alt={"klientkomponent"}
+          src={"/server.png"}
+          width="500"
+          height="400"
+          alt={"serverkomponent"}
         />
 
         <button
@@ -66,12 +69,24 @@ export default function ServerComponent() {
             color: "red;",
             textDecoration: "underline;",
             borderRadius: "5px",
+            width: "600px",
           }}
-          href="https://nextjs.org/docs/app/building-your-application/rendering/client-components"
+          href="https://nextjs.org/docs/app/building-your-application/rendering/server-components"
         >
-          Her kan du lese mer om klientkomponenter hvis du vil vite mer
+          Her kan du lese mer om serverkomponenter hvis du vil vite mer
         </Link>
+        {data && (
+          <>
+            <h2>Data fra server</h2>
+            <ul>
+              <li>Author: {data.author}</li>
+              <li>Title: {data.title}</li>
+            </ul>
+          </>
+        )}
       </section>
     </main>
   );
 }
+
+export default ServerComponent;
