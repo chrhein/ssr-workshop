@@ -14,7 +14,7 @@ function ClientComponent2() {
   };
 
   useEffect(() => {
-    getData().then((data) => setData(data));
+    getData().then(setData);
   }, []);
 
   return (

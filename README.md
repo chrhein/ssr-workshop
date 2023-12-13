@@ -98,9 +98,9 @@ Selv om alt prerendres på server er det nå ingenting som kan vises fordi hele 
 
 1: Kommenter inn denne kodelinjen i ClientComponent:
 
-```
+```tsx
 useEffect(() => {
-getData().then((data) => setData(data));
+  getData().then(setData);
 }, []);
 ```
 
@@ -108,7 +108,7 @@ getData().then((data) => setData(data));
 
 3: Søkemotoroptimalisering (SEO): Prøv å hente innholdet på siden med curl og se om slideshowobjektet er en del av responsen:
 
-```
+```bash
 curl -X GET "http://localhost:3000/oppgave" -H "accept: application/json"
 ```
 
@@ -116,14 +116,26 @@ curl -X GET "http://localhost:3000/oppgave" -H "accept: application/json"
 
 1: Kommenter inn denne kodelinjen i ServerComponent (sørg for at koden blir rendret på server ved å fjerne "use client" dersom du har lagt til det):
 
-```
+```tsx
 const data = await getData();
+
+og dette nederst i return
+
+{data && (
+    <>
+    <h2>Data fra server</h2>
+    <ul>
+        <li>Author: {data.author}</li>
+        <li>Title: {data.title}</li>
+    </ul>
+    </>
+)}
 ```
 
 2: Gå til nettleser og se at data fra server dukker opp nederst på siden. Skru av javascript. Hva skjedde og hvorfor?
 
 3: Søkemotoroptimalisering (SEO): Prøv å hente innholdet på siden med curl og se om slideshowobjektet er en del av responsen:
 
-```
+```bash
 curl -X GET "http://localhost:3000/oppgave" -H "accept: application/json"
 ```

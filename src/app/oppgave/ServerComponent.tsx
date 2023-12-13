@@ -6,7 +6,7 @@ import { Slideshow, getData } from "./api-route";
 async function ServerComponent() {
   const [buttonClickedText, setButtonClickedText] = useState("");
 
-  const data = await getData();
+  // const data = await getData();
 
   const handleClick = () => {
     setButtonClickedText("Knappen er trykket");
@@ -75,7 +75,7 @@ async function ServerComponent() {
         >
           Her kan du lese mer om serverkomponenter hvis du vil vite mer
         </Link>
-        {data && (
+        {/* {data && (
           <>
             <h2>Data fra server</h2>
             <ul>
@@ -83,7 +83,7 @@ async function ServerComponent() {
               <li>Title: {data.title}</li>
             </ul>
           </>
-        )}
+        )} */}
       </section>
     </main>
   );
