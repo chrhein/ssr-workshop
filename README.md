@@ -59,16 +59,16 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
 
 <details><summary>Løsningsforslag</summary>
 
-Alt av det html rendres uansett. Ingen endring. Dette er fordi Next prerendrer alt på server selv om det er en klientkompoenet og dermed skjer hydrering (js) på klienten.
-Derfor funker det ikke å trykke på knappen uten javascript, men htmlen vil likevel rendres på serverside. Les mer om dette her: https://nextjs.org/learn-pages-router/basics/data-fetching.
+Alt av html rendres uansett. Ingen endring. Dette er fordi Next prerendrer alt på server selv om det er en klientkompoenet og dermed skjer hydrering (js) på klienten.
+Derfor funker det ikke å trykke på knappen uten javascript, men html vil likevel rendres på serverside. Les mer om pre-rendering her: https://nextjs.org/learn-pages-router/basics/data-fetching/pre-rendering.
 
-Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ved bruk av useEffect og vist denne dataen ville ikke dataen vært synlig uten js. Alt utenom den dynamiske delen ville vært synlig. Men hadde vi hentet dataen på server ville alt vært synlig selv uten js.
+Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ved bruk av useEffect og vist denne dataen ville ikke dataen vært synlig uten js og dermed ikke tilgjengelig for søkemotor heller. Alt utenom den dynamiske delen ville vært synlig. Men hadde vi hentet dataen på server ville alt vært synlig og tilgjengelig selv uten js.
 
 </details>
 
 ### Oppgave 1b
 
-- Bytt ut ClientComponent med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den skal rendres på server.
+- Bytt ut ClientComponent med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den kun skal rendres på server.
 - Gå til localhost:3000/oppgave1 og les feilmeldingen du får.
 
 #### For å løse problemet kan du enten:
