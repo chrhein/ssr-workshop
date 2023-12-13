@@ -92,6 +92,8 @@ I Next vil alt (til og med klientkomponenter). prerendres på server uansett så
 
 Selv om alt prerendres på server er det nå ingenting som kan vises fordi hele visningen avhenger av data som blir hentet i en useEffect som kun er tilgjengelig i nettleser etter at js er lastet ned og kjørt.
 
+</details>
+
 ### Oppgave 2a:
 
 1: Kommenter inn denne kodelinjen i ClientComponent:
