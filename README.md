@@ -29,8 +29,57 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Info før du begynner
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Info til de som ikke har brukt Next.js eller app directory tidligere. Er du kjent med Next så kan dette samt oppgavene bli kjedelige.. sorry 🤪 🤷‍♀️
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Under mappen "app" finnes det en mappe per oppgave. I next er alle mapper under "app" en egen rute. Det vil si at dersom du vil se inneholdet i oppgave1, må du gå inn på localhost:3000/oppgave1. Da vil next automatisk vise deg innholdet i page.tsx under mappen oppgave1. Mappen kan inneholde mange filer/komponenter men dersom de skal rendres på en spsefikk rute må komponenten være med i filen page.tsx eller barn av en komponent til den spesifikke ruten.
+
+### Klient-komponenter / server-komponenter:
+
+For å rendre en klientkomponent i Next og i React må du skrive "use client" øverst i filen. Da blir alt innhold i filen OG dens barn rendret på klient.
+Det vil si at dersom du vil at noe skal rendres på server side må page.tsx innenfor en rute ikke inneholde "use client". Da blir innholdet rendret på server og du kan velge hvilke barn som skal rendres på klient dersom du vil kombinere dette.
+
+Les om klientkomponenter her for mer info: https://nextjs.org/docs/app/building-your-application/rendering/client-components
+
+TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er ikke tilgengelige på server. Ved bruk av disse i filer som ikke er markert med "use client" vil føre til en feilmelding. Dersom deler av komponenten din er avhengig av dette så må du flytte de ut til en klientkomponent. Men husk, det kan være du egentlig ikke trenger den useEffecten 🙃
+
+## Oppgaver
+
+### Oppgave 1a
+
+- Kjør appen
+- Gå inn på localhost:3000/oppgave1
+- Trykk på knappen nederst på siden og se at teksten under dukker opp
+- Skru dermed av javascript i nettleser:
+  (How? Mac: command + shift + p,
+  skriv javascript i feltet og velg "disable javascript")
+- Trykk på knappen igjen.
+- Hva er anderledes og hvorfor?
+
+<details><summary>Løsningsforslag</summary>
+
+Alt av det html rendres uansett. Ingen endring. Dette er fordi Next prerendrer alt på server selv om det er en klientkompoenet og dermed skjer hydrering (js) på klienten.
+Derfor funker det ikke å trykke på knappen uten javascript, men htmlen vil likevel rendres på serverside. Les mer om dette her: https://nextjs.org/learn-pages-router/basics/data-fetching.
+
+Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ved bruk av useEffect og vist denne dataen ville ikke dataen vært synlig uten js. Alt utenom den dynamiske delen ville vært synlig. Men hadde vi hentet dataen på server ville alt vært synlig selv uten js.
+
+</details>
+
+### Oppgave 1b
+
+- Bytt ut ClientComponent med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den skal rendres på server.
+- Gå til localhost:3000/oppgave1 og les feilmeldingen du får.
+
+#### For å løse problemet kan du enten:
+
+- 1: Legge på "use client" øverst i filen og rendre hele komponenten som en klientkomponent
+- 2: Eller trekke knappen, useState og onClick ut i en egen komponent hvor du legger til "use client" men lar alt annet rendres på server. Du kan da fjerne knappen og tilhørende logikk i ServerComponent og importere Button.tsx i stedet.
+
+#### Hva er forskjellen og ville en av delene ført til raskere sidelast?
+
+<details><summary>Løsningsforslag</summary>
+
+I Next vil alt (til og med klientkomponenter). prerendres på server uansett så det vil i praksis ikke ha noen betydning hvilken av valgene man tar. Men dersom man ikke brukte Next og en klientkomponent ikke hadde blitt rendret på server først, ville det gitt raskere sidelast dersom man rendret alt utenom knappen på server og kun knappen med onclick og state på klienten fordi js bundle blir da mindre / færre pakker å installere osv -> mindre jobb for klienten.
+
+</details>
