@@ -14,9 +14,9 @@ export default function Button() {
       <button
         onClick={handleClick}
         style={{
-          backgroundColor: "white;",
-          color: "black;",
-          padding: "1rem;",
+          backgroundColor: "white",
+          color: "black",
+          padding: "1rem",
           width: "150px",
           borderRadius: "5px",
         }}
@@ -24,7 +24,7 @@ export default function Button() {
         Trykk meg!
       </button>
       {buttonClickedText && (
-        <span style={{ color: "red;" }}>{buttonClickedText}</span>
+        <span style={{ color: "red" }}>{buttonClickedText}</span>
       )}
     </>
   );
