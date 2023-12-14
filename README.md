@@ -80,16 +80,17 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
 
 <details><summary>Løsningsforslag</summary>
 
-Alt av html rendres uansett. Ingen endring. Dette er fordi Next prerendrer alt på server selv om det er en klientkompoenet og dermed skjer hydrering (js) på klienten.
-Derfor funker det ikke å trykke på knappen uten javascript, men html vil likevel rendres på serverside. [Les mer om pre-rendering her](https://nextjs.org/learn-pages-router/basics/data-fetching/pre-rendering).
+Alt av html rendres med ClientComponent, men ikke med NoSSRClientComponent. Next prerendrer alt på server selv om det er en klientkompoenet og dermed skjer hydrering (js) på klienten. Derfor funker det ikke å trykke på knappen ved rendring av ClientComponent uten javascript, men html vil likevel rendres på serverside. [Les mer om pre-rendering her](https://nextjs.org/learn-pages-router/basics/data-fetching/pre-rendering).
 
-Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ved bruk av useEffect og vist denne dataen ville ikke dataen vært synlig uten js og dermed ikke tilgjengelig for søkemotor heller. Alt utenom den dynamiske delen ville vært synlig. Men hadde vi hentet dataen på server ville alt vært synlig og tilgjengelig selv uten js.
+Siden vi har skrudd av SSR i NoSSRClientComponent så vil den ikke prerendres på server og man er helt avhengig av js -> derfor synes ingenting (ingen html)
+
+Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ved bruk av useEffect og vist denne dataen ville ikke dataen vært synlig uten js og dermed ikke tilgjengelig for søkemotor heller. Alt utenom den dynamiske delen ville vært synlig i ClientComponent. Men hadde vi hentet dataen på server ville alt vært synlig og tilgjengelig selv uten js.
 
 </details>
 
 ### Oppgave 1b
 
-- Bytt ut ClientComponent med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den kun skal rendres på server.
+- Bytt ut med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den kun skal rendres på server.
 - Gå til localhost:3000/oppgave og les feilmeldingen du får.
 
 #### For å løse problemet kan du enten:
@@ -121,8 +122,8 @@ Selv om alt prerendres på server er det nå ingenting som kan vises fordi hele 
 
 ```tsx
 useEffect(() => {
-  getData().then(setData)
-}, [])
+  getData().then(setData);
+}, []);
 ```
 
 2: Gå til nettleser og se at data fra server dukker opp nederst på siden. Skru av javascript. Hva skjedde og hvorfor?
