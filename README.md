@@ -61,18 +61,18 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
   - Naviger til settings
   - Trykk på "Disable javascript"
 
-  ![Disable javascript i Firefox](firefox-disable-js.png)
+  ![Disable javascript i Firefox](/public/firefox-disable-js.png)
 
   Chrome:
 
-  -Åpne Chrome DevTools
+  - Åpne Chrome DevTools
 
   - Deretter åpne command menu:
     - På MacOS, command + shift + P
     - På Window eller Linux, control + shift + p
   - Skriv javascript, trykk enter for å kjøre kommandoen.)
 
-  ![Disable javascript i Chrome](chrome-js-disable.png)
+  ![Disable javascript i Chrome](/public/chrome-js-disable.png)
 
 - Trykk på knappen igjen.
 - Hva er anderledes og hvorfor?
