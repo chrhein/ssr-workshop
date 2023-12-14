@@ -54,6 +54,25 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
 - Skru dermed av javascript i nettleser:
   (How? Mac: command + shift + p,
   skriv javascript i feltet og velg "disable javascript")
+
+  (Firefox:
+
+  - Naviger til about:config i URL-feltet, godta risikoen og fortsett
+  - Find javascript.enabled preferansen og toggle til den false)
+
+  ![Disable javascript i Firefox](firefox-js-disable.png)
+
+  (Chrome:
+
+  -Åpne Chrome DevTools
+
+  - Deretter åpne command menu:
+    - På MacOS, command + shift + P
+    - På Window eller Linux, control + shift + p
+  - Skriv javascript, trykk enter for å kjøre kommandoen.)
+
+  ![Disable javascript i Chrome](chrome-js-disable.png)
+
 - Trykk på knappen igjen.
 - Hva er anderledes og hvorfor?
 - Bytt så ut ClientComponent med NoSSRClientComponent i page.tsx, hvordan og hvorfor blir denne annerledes med og uten javascript?
@@ -101,8 +120,8 @@ Selv om alt prerendres på server er det nå ingenting som kan vises fordi hele 
 
 ```tsx
 useEffect(() => {
-  getData().then(setData);
-}, []);
+  getData().then(setData)
+}, [])
 ```
 
 2: Gå til nettleser og se at data fra server dukker opp nederst på siden. Skru av javascript. Hva skjedde og hvorfor?
