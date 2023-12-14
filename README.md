@@ -55,14 +55,15 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
   (How? Mac: command + shift + p,
   skriv javascript i feltet og velg "disable javascript")
 
-  (Firefox:
+  Firefox:
 
-  - Naviger til about:config i URL-feltet, godta risikoen og fortsett
-  - Find javascript.enabled preferansen og toggle til den false)
+  - Åpne developer-tools (f12)
+  - Naviger til settings
+  - Trykk på "Disable javascript"
 
-  ![Disable javascript i Firefox](firefox-js-disable.png)
+  ![Disable javascript i Firefox](firefox-disable-js.png)
 
-  (Chrome:
+  Chrome:
 
   -Åpne Chrome DevTools
 
