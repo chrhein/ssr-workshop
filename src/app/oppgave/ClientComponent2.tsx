@@ -57,9 +57,9 @@ function ClientComponent2() {
             <button
               onClick={handleClick}
               style={{
-                backgroundColor: "white;",
-                color: "black;",
-                padding: "1rem;",
+                backgroundColor: "white",
+                color: "black",
+                padding: "1rem",
                 width: "150px",
                 borderRadius: "5px",
               }}
@@ -67,15 +67,15 @@ function ClientComponent2() {
               Trykk meg!
             </button>
             {buttonClickedText && (
-              <span style={{ color: "red;" }}>{buttonClickedText}</span>
+              <span style={{ color: "red" }}>{buttonClickedText}</span>
             )}
 
             <Link
               style={{
-                background: "white;",
-                padding: "1rem;",
-                color: "red;",
-                textDecoration: "underline;",
+                background: "white",
+                padding: "1rem",
+                color: "red",
+                textDecoration: "underline",
                 borderRadius: "5px",
                 width: "600px",
               }}
