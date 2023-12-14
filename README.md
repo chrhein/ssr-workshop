@@ -56,6 +56,7 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
   skriv javascript i feltet og velg "disable javascript")
 - Trykk på knappen igjen.
 - Hva er anderledes og hvorfor?
+- Bytt så ut ClientComponent med NoSSRClientComponent i page.tsx, hvordan og hvorfor blir denne annerledes med og uten javascript?
 
 <details><summary>Løsningsforslag</summary>
 
