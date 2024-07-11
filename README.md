@@ -15,7 +15,7 @@ npm i
 npm run dev
 ```
 
-Åpne [http://localhost:3000](http://localhost:3000) i en nettleser for å se resultatet. (Viktig med http og ikke https!)
+Åpne [http://localhost:3000](http://localhost:3000) i en nettleser for å se resultatet. (Viktig med http og ikke https! Enkelte nettlesere som Arc kan prøve å tvinge gjennom https her, og det vil dermed ikke fungere. Om dette blir et problem er løsningen å bytte nettleser til enten Safari eller Firefox).
 
 ### Klient-komponenter / server-komponenter:
 
