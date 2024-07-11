@@ -19,7 +19,7 @@ npm run dev
 
 ## Oppgaver
 
-### Oppgave 1a
+### Oppgave 1
 
 Åpne [oppgave1](http://localhost:3000/oppgave1) i nettleseren og inspiser HTML-responsen som blir sendt fra Next-serveren når du refresher siden.
 
@@ -32,7 +32,7 @@ npm run dev
   
 </details>
 
-### Oppgave 1b
+### Oppgave 1
 
 Hva skjer når du skrur av JavaScript?
 
@@ -45,7 +45,7 @@ Hva skjer når du skrur av JavaScript?
   
 </details>
 
-### Oppgave 1c
+### Oppgave 3
 
 Legg til state i komponenten `src/app/oppgave1/oppgave1.tsx`
 
@@ -60,7 +60,7 @@ Du kan f.eks. lage en counter med [useState](https://react.dev/reference/react/u
   
 </details>
 
-### Oppgave 1d
+### Oppgave 4
 
 På rad 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for `use server` for å omvandle komponenten til en [client component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Fungerer counteren nå?
 
@@ -72,6 +72,12 @@ På rad 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for
  På grunn av at komponenten nå er en client component vil det være mulig å legge til state. Men det vil bare være mulig å oppdatere state når JavaScript er skrudd på i nettleseren, på grunn av at der er JavaScript som oppdaterer state i nettleseren. På grunn av at NextJS pre-renderer den initielle staten vil du fortsatt se klientkomponeten. [Les mer om pre-rendering](https://nextjs.org/learn-pages-router/basics/data-fetching/pre-rendering).
   
 </details>
+
+### Oppgave 5
+
+Flytt ut koden med counteren til en egen komponent. Denne komponenten skal være en klientkomponent (`use client`), for å gjøre den interaktiv. Ta i bruk den nye komponenten i `src/app/oppgave1.oppgave1.tsx`.
+
+💡 Hva skjer nå om du endrer `oppgave1.tsx` til å være en serverkomponent?
 
 ## Klient-komponenter / server-komponenter:
 
