@@ -17,6 +17,62 @@ npm run dev
 
 Åpne [http://localhost:3000](http://localhost:3000) i en nettleser for å se resultatet. (Viktig med http og ikke https! Enkelte nettlesere som Arc kan prøve å tvinge gjennom https her, og det vil dermed ikke fungere. Om dette blir et problem er løsningen å bytte nettleser til enten Safari eller Firefox).
 
+## Oppgaver
+
+### Oppgave 1a
+
+Åpne [oppgave1](http://localhost:3000/oppgave1) i nettleseren og inspiser HTML-responsen som blir sendt fra Next-serveren når du refresher siden.
+
+💡 Inspect -> Network -> velg html-dokumentet i listen med nettverkskall
+
+<details>
+  <summary>Forklaring</summary>
+  
+ Du vil du forhåpentligvis se HTML som ligner på `src/app/oppgave1/oppgave1.tsx`, pluss noen scripts og diverse annet. 
+  
+</details>
+
+### Oppgave 1b
+
+Hva skjer når du skrur av JavaScript?
+
+💡 Inspect -> Settings -> Disable JavaScript
+
+<details>
+  <summary>Forklaring</summary>
+  
+ Siden fungerer som forventet. Vi har ikke noen interaktive elementer som er avhengige av JavaScript.
+  
+</details>
+
+### Oppgave 1c
+
+Legg til state i komponenten `src/app/oppgave1/oppgave1.tsx`
+
+Du kan f.eks. lage en counter med [useState](https://react.dev/reference/react/useState), der klikk på en knapp øker et tall på siden.
+
+💡 Gå videre til neste oppgave når det vises en feilmelding, men les hva som står.
+
+<details>
+  <summary>Forklaring</summary>
+  
+ Det er ikke mulig å bruke state i server components, på grunn av at alt renderes server-side og ikke i nettleseren.
+  
+</details>
+
+### Oppgave 1d
+
+På rad 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for `use server` for å omvandle komponenten til en [client component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Fungerer counteren nå?
+
+💡 Prøv å skru på/av Javascript. Hvorfor fungerer det annerledes?
+
+<details>
+  <summary>Forklaring</summary>
+  
+ På grunn av at komponenten nå er en client component vil det være mulig å legge til state. Men det vil bare være mulig å oppdatere state når JavaScript er skrudd på i nettleseren, på grunn av at der er JavaScript som oppdaterer state i nettleseren. På grunn av at NextJS pre-renderer den initielle staten vil du fortsatt se klientkomponeten.
+  
+</details>
+
 ### Klient-komponenter / server-komponenter:
 
 For å rendre en klientkomponent i Next og i React må du skrive "use client" øverst i filen. Da blir alt innhold i filen OG dens barn rendret på klient.
@@ -30,35 +86,35 @@ TIPS: Apier som useState, useEffect eller onClick ( og alle event handlers) er i
 
 ### Oppgave 1a
 
--   Kjør appen
--   Gå inn på localhost:3000/oppgave
--   Trykk på knappen nederst på siden og se at teksten under dukker opp
--   Skru dermed av javascript i nettleser:
-    (How? Mac: command + shift + p,
-    skriv javascript i feltet og velg "disable javascript")
+- Kjør appen
+- Gå inn på localhost:3000/oppgave
+- Trykk på knappen nederst på siden og se at teksten under dukker opp
+- Skru dermed av javascript i nettleser:
+  (How? Mac: command + shift + p,
+  skriv javascript i feltet og velg "disable javascript")
 
-    Firefox:
+  Firefox:
 
-    -   Åpne developer-tools (f12)
-    -   Naviger til settings
-    -   Trykk på "Disable javascript"
+  - Åpne developer-tools (f12)
+  - Naviger til settings
+  - Trykk på "Disable javascript"
 
-    ![Disable javascript i Firefox](/public/firefox-disable-js.png)
+  ![Disable javascript i Firefox](/public/firefox-disable-js.png)
 
-    Chrome:
+  Chrome:
 
-    -   Åpne Chrome DevTools
+  - Åpne Chrome DevTools
 
-    -   Deretter åpne command menu:
-        -   På MacOS, command + shift + P
-        -   På Window eller Linux, control + shift + p
-    -   Skriv javascript, trykk enter for å kjøre kommandoen.)
+  - Deretter åpne command menu:
+    - På MacOS, command + shift + P
+    - På Window eller Linux, control + shift + p
+  - Skriv javascript, trykk enter for å kjøre kommandoen.)
 
-    ![Disable javascript i Chrome](/public/chrome-js-disable.png)
+  ![Disable javascript i Chrome](/public/chrome-js-disable.png)
 
--   Trykk på knappen igjen.
--   Hva er anderledes og hvorfor?
--   Bytt så ut ClientComponent med NoSSRClientComponent i page.tsx, hvordan og hvorfor blir denne annerledes med og uten javascript?
+- Trykk på knappen igjen.
+- Hva er anderledes og hvorfor?
+- Bytt så ut ClientComponent med NoSSRClientComponent i page.tsx, hvordan og hvorfor blir denne annerledes med og uten javascript?
 
 <details><summary>Løsningsforslag</summary>
 
@@ -72,13 +128,13 @@ Dersom vi hadde hentet noe innhold dynamisk fra en server på klienten f.eks. ve
 
 ### Oppgave 1b
 
--   Bytt ut med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den kun skal rendres på server.
--   Gå til localhost:3000/oppgave og les feilmeldingen du får.
+- Bytt ut med ServerComponent i page.tsx. ServerComponent er en eksakt kopi av ClientComponent utenom "use client" som er fjernet for at den kun skal rendres på server.
+- Gå til localhost:3000/oppgave og les feilmeldingen du får.
 
 #### For å løse problemet kan du enten:
 
--   1: Legge på "use client" øverst i filen og rendre hele komponenten som en klientkomponent
--   2: Eller trekke knappen, useState og onClick ut i en egen komponent hvor du legger til "use client" men lar alt annet rendres på server. Du kan da fjerne knappen og tilhørende logikk i ServerComponent og importere Button.tsx i stedet.
+- 1: Legge på "use client" øverst i filen og rendre hele komponenten som en klientkomponent
+- 2: Eller trekke knappen, useState og onClick ut i en egen komponent hvor du legger til "use client" men lar alt annet rendres på server. Du kan da fjerne knappen og tilhørende logikk i ServerComponent og importere Button.tsx i stedet.
 
 #### Hva er forskjellen og ville en av delene ført til raskere sidelast?
 
@@ -90,7 +146,7 @@ I Next vil alt (til og med klientkomponenter). prerendres på server uansett så
 
 ### Oppgave 1c
 
--   Bytt ut med ClientComponent2 i page.tsx. Dette er en klientkomponent hvor html kun blir rendret dersom vi har mottatt data som blir hentet i en useEffect. Skru av js. Hvorfor synes ingenting?
+- Bytt ut med ClientComponent2 i page.tsx. Dette er en klientkomponent hvor html kun blir rendret dersom vi har mottatt data som blir hentet i en useEffect. Skru av js. Hvorfor synes ingenting?
 
 <details><summary>Løsningsforslag</summary>
 
@@ -104,7 +160,7 @@ Selv om alt prerendres på server er det nå ingenting som kan vises fordi hele 
 
 ```tsx
 useEffect(() => {
-    getData().then(setData);
+  getData().then(setData);
 }, []);
 ```
 
