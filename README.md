@@ -2,9 +2,7 @@
 
 ## Info før du begynner
 
-Her er litt info til dere som kanskje ikke har brukt Next.js før. Hvis du allerede er en Next.js-ekspert, kan oppgavene virke litt kjedelige for deg... beklager! 🤪 🤷‍♀️
-
-Under mappen "app" finner du en mappe for hver oppgave. I Next.js fungerer alle mapper under "app" som egne ruter. Det betyr at hvis du vil se innholdet i en oppgave, må du navigere til localhost:3000/oppgave. Next.js vil da automatisk vise deg innholdet i page.tsx-filen i oppgavemappen. Mappen kan inneholde mange filer og komponenter, men for at de skal rendres på en spesifikk rute, må komponenten være inkludert i page.tsx-filen eller være et barn av en komponent for den spesifikke ruten.
+Under mappen `app` finner du en mappe som heter `oppgave1` I Next.js fungerer alle mapper under "app" som egne ruter. Det betyr at hvis du vil se innholdet i en oppgave, må du navigere til http://localhost:3000/oppgave1. Next.js vil da automatisk vise deg innholdet i page.tsx-filen i oppgavemappen. Mappen kan inneholde mange filer og komponenter, men for at de skal rendres på en spesifikk rute, må komponenten være inkludert i page.tsx-filen eller være et barn av en komponent for den spesifikke ruten.
 
 ## Kom i gang
 
