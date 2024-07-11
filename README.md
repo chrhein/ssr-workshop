@@ -64,6 +64,8 @@ Du kan f.eks. lage en counter med [useState](https://react.dev/reference/react/u
 
 På rad 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for `use server` for å omvandle komponenten til en [client component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Fungerer counteren nå?
 
+💡 Fjern async fra `async function Oppgave1()`
+
 💡 Prøv å skru på/av Javascript. Hvorfor fungerer det annerledes?
 
 <details>
