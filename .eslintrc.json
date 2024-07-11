@@ -1,9 +1,7 @@
 {
   "extends": "next/core-web-vitals",
-  "linterOptions": {
-    "exclude": [
-      "*.json",
-      "**/*.json"
-    ]
-  }
+  "ignorePatterns": [
+    "*.json",
+    "**/*.json"
+  ]
 }
