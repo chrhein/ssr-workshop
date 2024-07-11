@@ -15,7 +15,7 @@ npm i
 npm run dev
 ```
 
-Åpne [http://localhost:3000](http://localhost:3000) med i en nettleser for å se resultatet.
+Åpne [http://localhost:3000](http://localhost:3000) i en nettleser for å se resultatet. (Viktig med http og ikke https!)
 
 ### Klient-komponenter / server-komponenter:
 
