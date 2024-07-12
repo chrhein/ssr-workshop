@@ -4,7 +4,7 @@
 
 Denne appen er skrevet i Next.js.
 
-Under mappen `app` finner du en mappe som heter `oppgave1` I Next.js fungerer alle mapper under "app" som egne ruter. Det betyr at hvis du vil se innholdet i en oppgave, må du navigere til http://localhost:3000/oppgave1. Next.js vil da automatisk vise deg innholdet i page.tsx-filen i oppgavemappen. Mappen kan inneholde mange filer og komponenter, men for at de skal rendres på en spesifikk rute, må komponenten være inkludert i page.tsx-filen eller være et barn av en komponent for den spesifikke ruten.
+Under mappen `app` finner du en mappe som heter `oppgave1`. I Next.js fungerer alle mapper under "app" som egne ruter. Det betyr at hvis du vil se innholdet i en oppgave, må du navigere til http://localhost:3000/oppgave1. Next.js vil da automatisk vise deg innholdet i page.tsx-filen i oppgavemappen. Mappen kan inneholde mange filer og komponenter, men for at de skal rendres på en spesifikk rute, må komponenten være inkludert i page.tsx-filen eller være et barn av en komponent for den spesifikke ruten.
 
 ## Kom i gang
 
@@ -32,7 +32,7 @@ npm run dev
   
 </details>
 
-### Oppgave 1
+### Oppgave 2
 
 Hva skjer når du skrur av JavaScript?
 
@@ -62,7 +62,7 @@ Du kan f.eks. lage en counter med [useState](https://react.dev/reference/react/u
 
 ### Oppgave 4
 
-På rad 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for `use server` for å omvandle komponenten til en [client component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Fungerer counteren nå?
+På linje 1 i `src/app/oppgave1/oppgave1.tsx`, endre til `use client` i stedet for `use server` for å omvandle komponenten til en [client component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Fungerer counteren nå?
 
 💡 Fjern async fra `async function Oppgave1()`
 
@@ -96,19 +96,19 @@ Mac: command + shift + p, skriv javascript i feltet og velg "disable javascript"
 
 Firefox:
 
-- Åpne developer-tools (f12)
-- Naviger til settings
-- Trykk på "Disable javascript"
+-   Åpne developer-tools (f12)
+-   Naviger til settings
+-   Trykk på "Disable javascript"
 
 ![Disable javascript i Firefox](/public/firefox-disable-js.png)
 
 Chrome:
 
-- Åpne Chrome DevTools
+-   Åpne Chrome DevTools
 
-- Deretter åpne command menu:
-  - På MacOS, command + shift + P
-  - På Window eller Linux, control + shift + p
-- Skriv javascript, trykk enter for å kjøre kommandoen.
+-   Deretter åpne command menu:
+    -   På MacOS, command + shift + P
+    -   På Window eller Linux, control + shift + p
+-   Skriv javascript, trykk enter for å kjøre kommandoen.
 
 ![Disable javascript i Chrome](/public/chrome-js-disable.png)

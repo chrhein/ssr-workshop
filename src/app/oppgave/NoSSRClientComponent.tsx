@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
-const NoSSRClientComponent = dynamic(() => import("./ClientComponent"), {
-  ssr: false,
+const NoSSRClientComponent = dynamic(() => import('./ClientComponent'), {
+    ssr: false,
 });
 
 export default NoSSRClientComponent;
