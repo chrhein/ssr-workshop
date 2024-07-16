@@ -81,6 +81,23 @@ Flytt ut koden med counteren til en egen komponent. Denne komponenten skal være
 
 💡 Hva skjer nå om du endrer `oppgave1.tsx` til å være en serverkomponent?
 
+### Oppgave 6
+
+Prøv å lage en klientkomponent som henter data med hjelp av funksjonen `getData()`. Du kan f.eks. bruke en kombinasjon av `useState`+`useEffect` for å hente og lagre data:en i klientkomponenten, eller bruke et lib som Tanstack Query / SWR. Ta i bruk denne komponenten i `oppgave1.tsx`, og inspiserer html-responsen.
+
+💡 Vises det data i komponenten?
+
+<details>
+  <summary>Forklaring</summary>
+  
+  På grunn av at NextJS bruker en kombinasjon av server og client-side rendering så vises kun den initielle data:en i klientkomponenten, da data:en hentes client-side i en useEffect.
+  
+</details>
+
+### Oppgave 7
+
+Skriv om komponenten til å være en serverkomponent. Hvordan ser html-responsen ut nå?
+
 ## Klient-komponenter / server-komponenter:
 
 For å rendre en klientkomponent i Next og i React må du skrive "use client" øverst i filen. Da blir alt innhold i filen OG dens barn rendret på klient.
@@ -96,19 +113,19 @@ Mac: command + shift + p, skriv javascript i feltet og velg "disable javascript"
 
 Firefox:
 
--   Åpne developer-tools (f12)
--   Naviger til settings
--   Trykk på "Disable javascript"
+- Åpne developer-tools (f12)
+- Naviger til settings
+- Trykk på "Disable javascript"
 
 ![Disable javascript i Firefox](/public/firefox-disable-js.png)
 
 Chrome:
 
--   Åpne Chrome DevTools
+- Åpne Chrome DevTools
 
--   Deretter åpne command menu:
-    -   På MacOS, command + shift + P
-    -   På Window eller Linux, control + shift + p
--   Skriv javascript, trykk enter for å kjøre kommandoen.
+- Deretter åpne command menu:
+  - På MacOS, command + shift + P
+  - På Window eller Linux, control + shift + p
+- Skriv javascript, trykk enter for å kjøre kommandoen.
 
 ![Disable javascript i Chrome](/public/chrome-js-disable.png)
